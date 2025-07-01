@@ -48,7 +48,7 @@ Plugin stdmath = {
     .operations = ops,
 };
 
-// Initialize plugin (Do setup and return plugin)
+// Initialize plugin (Do setup and return plugin) (Function required)
 Plugin* init_plug(){
     srand(time(NULL));
     return &stdmath;

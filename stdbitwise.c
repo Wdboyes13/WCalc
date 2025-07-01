@@ -48,7 +48,7 @@ Plugin stdbitwise = {
     .operations = ops
 };
 
-// Plugin initializer
+// Plugin initializer (Function required)
 Plugin* init_plug(){
     printf("Bitwise ops are distinguished with b-\n");
     return &stdbitwise;
