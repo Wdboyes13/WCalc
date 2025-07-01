@@ -6,11 +6,6 @@
 #include "plugin.h"
 #include <dlfcn.h>
 
-typedef struct {
-    int (*operation)(int, int);
-    const char* name;
-} func;
-
 void do_math(PluginOp fun, int x, int y){
     int ret = fun.operation(x, y);
     printf("%s Returned %d\n", fun.name, ret);
