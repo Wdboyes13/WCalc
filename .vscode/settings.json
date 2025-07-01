@@ -8,6 +8,7 @@
         "typeinfo": "c",
         "chrono": "c",
         "text_encoding": "c",
-        "typeindex": "c"
+        "typeindex": "c",
+        "__locale": "c"
     }
 }

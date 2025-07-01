@@ -18,18 +18,16 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #pragma once
 
-typedef int (*opfunc)(int, int); // Typedef for operation function pointers
-
-// Plugin Operation Typedef
-typedef struct {
-    const char* name; // Operation Name
-    const char* info; // Short Description of the Operation
-    opfunc operation; // Function Pointer to Operation
-} PluginOp;
-
-// Plugin Typedef
-typedef struct {
-    const char* plugname; // Plugin Name
-    int op_count;         // Number of Operations in Plugin
-    PluginOp* operations; // Pointer to array of all operations
-} Plugin;
+#ifdef _WIN32
+  #include <windows.h>
+  #define DLOPEN(path) LoadLibraryA(path)
+  #define DLSYM(handle, sym) GetProcAddress(handle, sym)
+  #define DLCLOSE(handle) FreeLibrary(handle)
+  #define DLERROR() GetLastError()
+#else
+  #include <dlfcn.h>
+  #define DLOPEN(path) dlopen(path, RTLD_NOW)
+  #define DLSYM(handle, sym) dlsym(handle, sym)
+  #define DLCLOSE(handle) dlclose(handle)
+  #define DLERROR() dlerror()
+#endif
