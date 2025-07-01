@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "*.dbclient-js": "javascript",
+        "*.s": "arm",
+        "stdlib.h": "c",
+        "math.h": "c",
+        "plugin.h": "c",
+        "typeinfo": "c",
+        "chrono": "c",
+        "text_encoding": "c",
+        "typeindex": "c"
+    }
+}
