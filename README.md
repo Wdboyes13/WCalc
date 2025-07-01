@@ -8,7 +8,7 @@ __Compatible with macOS & Linux & Windows (Maybe)__
 >LibDyn is needed - See [LibDyn on GitHub](https://github.com/Wdboyes14/libdyn) - FLAGS var in Makefile will need to be adjusted to your install path  
 >Run `make PLATFORM=osx` on macOS  
 >Run `make PLATFORM=linux` on Linux  
->__On Windows you will need to learn the art of dynamic linking yourslef :3__  
+>__On Windows you will need to learn the art of dynamic linking yourself :3__  
 
 To start, run `./calc` it will automatically load `stdmath.dylib` (Standard Math Plugin)  
 From the current directory  
