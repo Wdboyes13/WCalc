@@ -35,7 +35,6 @@ In: random 0 10
 Out: random Returned 5
 
 In: exit
-
 ```  
 
 ## Notes  
