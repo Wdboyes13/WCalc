@@ -5,6 +5,7 @@ __Compatible with macOS & Linux & Windows (Maybe)__
 
 >[!IMPORTANT]  
 >To Compile standard libs & App  
+>LibDyn is needed - See [LibDyn on GitHub](https://github.com/Wdboyes14/libdyn)
 >Run `make PLATFORM=osx` on macOS  
 >Run `make PLATFORM=linux` on Linux  
 >__On Windows you will need to learn the art of dynamic linking yourslef :3__  
