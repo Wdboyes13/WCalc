@@ -48,11 +48,16 @@ void load_plug(const char* path){
     }
 
     Plugin* plugin = init_plug(); // Call `init_plug` method from `.dylib` which returns the plugin
-    printf("Loaded plugin: %s (%d ops)\n", plugin->plugname, plugin->op_count); // Notify the user that the plugin loaded
-
-    for (int i = 0; i < plugin->op_count; i++) {
-        all_ops[total_ops++] = plugin->operations[i]; // Add operations to the master array
+    if (total_ops + plugin->op_count < MAX_OPS){
+        for (int i = 0; i < plugin->op_count; i++) {
+            all_ops[total_ops++] = plugin->operations[i]; // Add operations to the master array
+        }
+        printf("Loaded plugin: %s (%d ops)\n", plugin->plugname, plugin->op_count); // Notify the user that the plugin loaded
+    } else {
+        printf("Failed to load plugin: Max Ops Reached (Max = %d, Current = %d, Plugin Wants = %d)\n",
+                                                                MAX_OPS, total_ops, plugin->op_count);
     }
+    
 }
 
 

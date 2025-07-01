@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+#include "crossdlfcn.h"
 #include "plugin.h" // For plugin typedefs
 #include <math.h> // For `pow()`
 #include <stdlib.h> // For `rand()` and `srand()`
@@ -49,7 +50,7 @@ Plugin stdmath = {
 };
 
 // Initialize plugin (Do setup and return plugin) (Function required)
-Plugin* init_plug(){
+EXPORT  Plugin* init_plug(){
     srand(time(NULL));
     return &stdmath;
 }

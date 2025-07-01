@@ -23,11 +23,20 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   #define DLOPEN(path) LoadLibraryA(path)
   #define DLSYM(handle, sym) GetProcAddress(handle, sym)
   #define DLCLOSE(handle) FreeLibrary(handle)
-  #define DLERROR() GetLastError()
+  static char win_dlerror_buf[256];
+    #define DLERROR() (FormatMessageA(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, \
+                                     NULL, GetLastError(), 0, win_dlerror_buf, sizeof(win_dlerror_buf), NULL), \
+                      win_dlerror_buf)
 #else
   #include <dlfcn.h>
   #define DLOPEN(path) dlopen(path, RTLD_NOW)
   #define DLSYM(handle, sym) dlsym(handle, sym)
   #define DLCLOSE(handle) dlclose(handle)
   #define DLERROR() dlerror()
+#endif
+
+#ifdef _WIN32
+#define EXPORT __declspec(dllexport)
+#else
+#define EXPORT
 #endif

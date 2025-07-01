@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+#include "crossdlfcn.h"
 #include "plugin.h"
 #include <stdio.h> // For info prints
 
@@ -49,7 +50,7 @@ Plugin stdbitwise = {
 };
 
 // Plugin initializer (Function required)
-Plugin* init_plug(){
+EXPORT Plugin* init_plug(){
     printf("Bitwise ops are distinguished with b-\n");
     return &stdbitwise;
 }
